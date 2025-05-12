@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -729,11 +730,12 @@
                 <span class="highlight-text">◆アートメイク◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">パウダー眉（2D）</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="15000">毛並み眉（3D）</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">パウダー✖️毛並み眉（4D）</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="15000">パウダー×毛並み眉（4D）２ヶ月いないのリタッチ</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">眉カラー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">パウダー眉（2D）22000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">毛並み眉（3D）22000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">パウダー×毛並み眉　33000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">（2D・3D）2カ月以内の<br>リタッチ込みのご予約の方　38000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">（4D）2カ月以内の<br>リタッチ込みのご予約の方　55000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">眉カラー　1100円</button>
             </div>
         </div>
 
@@ -742,10 +744,32 @@
                 <span class="highlight-text">◆ララピール◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="15000">ララピール</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">ララピール＋導入美顔器</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">ララピール90分【初回の方限定】<br>11000円→6000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">ララピール60分コース<br>9000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">ララピール60分3回コース<br>27000円→22000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">ララピール60分5回コース＋1回<br>54000円→40000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">ララピール90分コース<br>11000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">ララピール90分コース3回コース<br>33000円→28000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">ララピール90分コース5回コース＋1回<br>64000円→50000円</button>
             </div>
-        </div>
+
+        <label id="repairLabel"></label>
+        <div id="repairButtons" class="irradiations">
+                        <button type="button" id="oneirradiations" onclick="selectirradiations(this)">1回目</button>
+                        <button type="button" id="twoirradiations" onclick="selectirradiations(this)">2回目</button>
+                        <button type="button" id="threeirradiations" onclick="selectirradiations(this)">3回目</button>
+                    </div>
+
+        <label id="raraLabel"></label>
+        <div id="raraButtons" class="irradiations">
+                        <button type="button" id="fourirradiations" onclick="selectirradiations(this)">1回目</button>
+                        <button type="button" id="fiveirradiations" onclick="selectirradiations(this)">2回目</button>
+                        <button type="button" id="sixirradiations" onclick="selectirradiations(this)">3回目</button>
+                        <button type="button" id="sevenirradiations" onclick="selectirradiations(this)">4回目</button>
+                        <button type="button" id="eightirradiations" onclick="selectirradiations(this)">5回目</button>
+                        <button type="button" id="nineirradiations" onclick="selectirradiations(this)">6回目(+1)</button>
+                    </div>
+                </div>
 
         <div class="label">希望日時<span class="required">必須</span></div>
         <div class="calendar-container">
@@ -846,7 +870,14 @@
             'パウダー✖️毛並み眉（4D）': 240,
             'パウダー×毛並み眉（4D）２ヶ月いないのリタッチ': 240,
             'ララピール': 60,
-            'ララピール＋導入美顔器': 120
+            'ララピール＋導入美顔器': 120,
+            'ララピール90分【初回の方限定】11000円→6000円': 90,
+            'ララピール60分コース9000円': 60,
+            'ララピール60分3回コース27000円→22000円': 60,
+            'ララピール60分5回コース＋1回54000円→40000円': 60,
+            'ララピール90分コース11000円': 90,
+            'ララピール90分コース3回コース33000円→28000円': 90,
+            'ララピール90分コース5回コース＋1回64000円→50000円': 90
         };
 
         let selectedMenuTime = 0;
@@ -990,39 +1021,65 @@
             // ボタンの選択状態を切り替える
             button.classList.toggle('active');
 
-            // 選択されたオプションを取得
-            const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
 
-            if (updatedSelectedButtons.length === 0) {
-                // すべてのボタンの選択が解除された場合、メニュー時間を0にリセット
-                selectedMenuTime = 0;
-                selectedSymptom = null; // 選択されたメニューをリセット
-                menuPrice = 0; // メニュー価格をリセット
-                treatmentText.style.display = 'none';
-                return; // ここで処理を終了
-            } else {
-                // 1つだけ選択状態にする
-                if (updatedSelectedButtons.length > 1) {
-                    updatedSelectedButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active'); // クリックしたボタンだけを選択
-                }
+    // 選択されたオプションを取得
+    const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
+    const treatmentText = document.getElementById('treatment-text');
+    selectedSymptom = button.textContent;
 
-                // 選択されたメニューの時間を取得して保存
-                const selectedMenu = button.textContent;
-                selectedMenuTime = menuTimes[selectedMenu] || 0; // メニュー時間を取得して保存
-                selectedSymptom = [selectedMenu]; // 選択されたメニュー名を配列として保存
-                menuPrice = parseInt(button.getAttribute('data-price'), 10) || 0;  // メニューの価格を取得
-            }
+    const repairLabel = document.getElementById('repairLabel');
+    const repairButtons = document.getElementById('repairButtons');
 
-            console.log('選択されたメニューの時間:', selectedMenuTime);
+    if (selectedSymptom === 'ララピール60分3回コース27000円→22000円' || selectedSymptom === 'ララピール90分コース3回コース33000円→28000円') {
+        button.insertAdjacentElement("afterend", repairLabel);
+        repairLabel.insertAdjacentElement("afterend", repairButtons);
+        repairLabel.style.display = 'block';
+        repairButtons.style.display = 'flex';
+    } else {
+        repairLabel.style.display = 'none';
+        repairButtons.style.display = 'none';
+    }
 
-            // カレンダーを更新するために取得する日付を渡す
-            fetchAvailability(currentDate);
+    if (selectedSymptom === 'ララピール60分5回コース＋1回54000円→40000円' || selectedSymptom === 'ララピール90分コース5回コース＋1回64000円→50000円') {
+        button.insertAdjacentElement("afterend", raraLabel);
+        raraLabel.insertAdjacentElement("afterend", raraButtons);
+        raraLabel.style.display = 'block';
+        raraButtons.style.display = 'flex';
+    } else {
+        raraLabel.style.display = 'none';
+        raraButtons.style.display = 'none';
+    }
+
+    if (updatedSelectedButtons.length === 0) {
+        // すべてのボタンの選択が解除された場合、メニュー時間を0にリセット
+        selectedMenuTime = 0;
+        selectedSymptom = null; // 選択されたメニューをリセット
+        menuPrice = 0; // メニュー価格をリセット
+        treatmentText.style.display = 'none';
+        return; // ここで処理を終了
+    } else {
+        // 1つだけ選択状態にする
+        if (updatedSelectedButtons.length > 1) {
+            updatedSelectedButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active'); // クリックしたボタンだけを選択
+        }
+
+        // 選択されたメニューの時間を取得して保存
+        const selectedMenu = button.textContent;
+        selectedMenuTime = menuTimes[selectedMenu] || 0; // メニュー時間を取得して保存
+        selectedSymptom = [selectedMenu]; // 選択されたメニュー名を配列として保存
+        menuPrice = parseInt(button.getAttribute('data-price'), 10) || 0;  // メニューの価格を取得
+    }
+
+    console.log('選択されたメニューの時間:', selectedMenuTime);
+
+    // カレンダーを更新するために取得する日付を渡す
+    fetchAvailability(currentDate);
 
             if (treatmentId === 'treatment1') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
             } else if (treatmentId === 'treatment2') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;">※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円<br>初診料：＋2,200円</strong></div>`;
             } else if (treatmentId === 'treatment3') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円<br>初診料：＋2,200円</strong></div>`;
             } else if (treatmentId === 'treatment4') {
@@ -1057,6 +1114,18 @@
         }
 
         function selectirradiations(button) {
+            /* 訪問回数ボタンの選択状態をリセット */
+            document.getElementById('oneirradiations').classList.remove('active');
+            document.getElementById('twoirradiations').classList.remove('active');
+            document.getElementById('threeirradiations').classList.remove('active');
+            document.getElementById('fourirradiations').classList.remove('active');
+            document.getElementById('fiveirradiations').classList.remove('active');
+            document.getElementById('sixirradiations').classList.remove('active');
+            document.getElementById('sevenirradiations').classList.remove('active');
+            document.getElementById('eightirradiations').classList.remove('active');
+            document.getElementById('nineirradiations').classList.remove('active');
+            /* クリックされたボタンを選択状態にする */
+
             // 選択された日時をリセット
             selectedFullDate = '';
 
@@ -1220,7 +1289,7 @@
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
+                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom}${formData.irradiationsCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。');
@@ -1252,7 +1321,7 @@
                 return;
             }
 
-            const url = 'https://script.google.com/macros/s/AKfycby-LWcQ02VyLMSOHBNgNTJVMH_tpyn_-cCEgS5t8cJdK4dhgVwe8Rgg8yepfsuopksD/exec' +
+            const url = 'https://script.google.com/macros/s/AKfycbwjBucKiapeEEn2qAkKjphibHMJBq7pRAaewcFH7kG7efjtq4fGiItd0UASdBr6i7NC/exec' +
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
             try {
