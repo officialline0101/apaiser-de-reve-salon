@@ -12,7 +12,7 @@
             position: fixed; /* 画面スクロールしても固定 */
             right: -5px; /* さらに右へ */
             top: 80%; /* 画面中央に固定 */
-            transform: translateY(-50%) translateX(20px); /* 中央配置と右ずらし */
+            transform: translateY(-50%) translateX(11px); /* 中央配置と右ずらし */
             background: #45c4b7;
             display: flex;
             flex-direction: column;
@@ -298,11 +298,25 @@
 
         .week-button {
             padding: 10px 20px;
-            background-color: #444444;
-            color: #fff;
-            border: none;
+            background-color: #222222;
+            color: #ffffff;
+            border: 1px solid black;
+            /* ← 外枠を黒1pxに設定 */
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            transform-origin: center center;
+        }
+
+        .week-button:hover {
+            background-color: #222222;
+            transform: scale(1.15);
+            /* ドーン！ってくらい拡大🔥 */
+        }
+
+        .week-button:active {
+            transform: scale(0.95);
+            /* クリックした瞬間にギュッと縮む💥 */
         }
 
         .month-button-container {
@@ -315,11 +329,25 @@
 
         .month-button {
             padding: 10px 20px;
-            background-color: #444;
-            color: #fff;
-            border: none;
+            background-color: #222222;
+            color: #ffffff;
+            border: 1px solid black;
+            /* ← 外枠を黒1pxに設定 */
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            transform-origin: center center;
+        }
+
+        .month-button:hover {
+            background-color: #222222;
+            transform: scale(1.15);
+            /* ドーン！ってくらい拡大🔥 */
+        }
+
+        .month-button:active {
+            transform: scale(0.95);
+            /* クリックした瞬間にギュッと縮む💥 */
         }
 
         .current-month {
@@ -589,11 +617,13 @@
             width: 100%;
             padding: 15px;
             font-size: 18px;
-            background-color: #06c755;
+            background-color: #13ca5e;
+            margin-top: 12px;
+            /* ← ここで下方向にずらす */
         }
 
         .submit-button:hover {
-            background-color: #06c755;
+            background-color: #13ca5e;
         }
 
         @media (max-width: 768px) {
@@ -702,7 +732,7 @@
     </div>
 
     <div class="container">
-        <h1>apaiser-アペゼ-<br>予約フォーム
+        <h1>de reve salon<br>予約フォーム
         </h1>
         <div class="label">お客様名<span class="required">必須</span></div>
         <input type="text" id="name" placeholder="お名前を入力してください" oninput="saveInput('name')">
@@ -721,6 +751,8 @@
         <div class="menu-sections">
             <button type="button" onclick="showMenu('male')">アートメイク</button>
             <button type="button" onclick="showMenu('female')">ララピール</button>
+            <button type="button" onclick="showMenu('keana')">毛穴洗浄(ハイドラ)</button>
+            <button type="button" onclick="showMenu('wax')">WAX脱毛</button>
         </div>
 
         <div id="treatment-text" style="display: none; margin-bottom: 10px;"></div>
@@ -730,7 +762,7 @@
                 <span class="highlight-text">◆アートメイク◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">パウダー眉（2D）22000円</button>
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">パウダー眉（2D）22000円</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">毛並み眉（3D）22000円</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">パウダー×毛並み眉（4D）33000円</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">（2D・3D）2カ月以内の<br>リタッチ込みのご予約の方　38000円</button>
@@ -752,25 +784,49 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">ララピール90分コース<br>11000円</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">ララピール90分コース3回コース<br>33000円→28000円</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">ララピール90分コース5回コース＋1回<br>64000円→50000円</button>
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">ララピール60分×毛穴洗浄<br>(ハイドラ) 16000円</button>
             </div>
 
-        <label id="repairLabel"></label>
-        <div id="repairButtons" class="irradiations">
-                        <button type="button" id="oneirradiations" onclick="selectirradiations(this)">1回目</button>
-                        <button type="button" id="twoirradiations" onclick="selectirradiations(this)">2回目</button>
-                        <button type="button" id="threeirradiations" onclick="selectirradiations(this)">3回目</button>
-                    </div>
+<label id="repairLabel" style="display:none;"></label>
+<div id="repairButtons" class="irradiations" style="display:none;">
+    <button type="button" id="oneirradiations" onclick="selectirradiations(this)">1回目</button>
+    <button type="button" id="twoirradiations" onclick="selectirradiations(this)">2回目</button>
+    <button type="button" id="threeirradiations" onclick="selectirradiations(this)">3回目</button>
+</div>
 
-        <label id="raraLabel"></label>
-        <div id="raraButtons" class="irradiations">
-                        <button type="button" id="fourirradiations" onclick="selectirradiations(this)">1回目</button>
-                        <button type="button" id="fiveirradiations" onclick="selectirradiations(this)">2回目</button>
-                        <button type="button" id="sixirradiations" onclick="selectirradiations(this)">3回目</button>
-                        <button type="button" id="sevenirradiations" onclick="selectirradiations(this)">4回目</button>
-                        <button type="button" id="eightirradiations" onclick="selectirradiations(this)">5回目</button>
-                        <button type="button" id="nineirradiations" onclick="selectirradiations(this)">6回目(+1)</button>
-                    </div>
+<label id="raraLabel" style="display:none;"></label>
+<div id="raraButtons" class="irradiations" style="display:none;">
+    <button type="button" id="fourirradiations" onclick="selectirradiations(this)">1回目</button>
+    <button type="button" id="fiveirradiations" onclick="selectirradiations(this)">2回目</button>
+    <button type="button" id="sixirradiations" onclick="selectirradiations(this)">3回目</button>
+    <button type="button" id="sevenirradiations" onclick="selectirradiations(this)">4回目</button>
+    <button type="button" id="eightirradiations" onclick="selectirradiations(this)">5回目</button>
+    <button type="button" id="nineirradiations" onclick="selectirradiations(this)">6回目(+1)</button>
+</div>
                 </div>
+
+        <div id="keana" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆毛穴洗浄(ハイドラ)◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">毛穴洗浄(ハイドラ)60分 8000円</button>
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">ララピール60分×毛穴洗浄<br>(ハイドラ) 16000円</button>
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">WAX脱毛×毛穴洗浄<br>（ハイドラ） 14500円</button>
+            </div>
+        </div>
+
+        <div id="wax" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆WAX脱毛◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">WAX脱毛【前顔】6500円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">WAX脱毛【1パーツ】2500円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">WAX脱毛【うなじ】3500円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">WAX脱毛×毛穴洗浄<br>（ハイドラ）14500円</button>
+            </div>
+        </div>
 
         <div class="label">希望日時<span class="required">必須</span></div>
         <div class="calendar-container">
@@ -866,6 +922,13 @@
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
+            '毛穴洗浄(ハイドラ)60分 8000円': 90,
+            'ララピール60分×毛穴洗浄(ハイドラ) 16000円': 90,
+            'WAX脱毛×毛穴洗浄（ハイドラ） 14500円': 120,
+            'WAX脱毛【前顔】6500円': 90,
+            'WAX脱毛【1パーツ】2500円': 30,
+            'WAX脱毛【うなじ】3500円': 60,
+            'WAX脱毛×毛穴洗浄（ハイドラ）14500円': 120,
             'パウダー眉（2D）22000円': 240,
             'リタッチ': 180,
             '毛並み眉（3D）22000円': 240,
@@ -1017,67 +1080,85 @@
             });
         });
 
-        function selectSymptom(button, treatmentId) {
-            // 選択された日時をリセット
-            selectedFullDate = '';
+function selectSymptom(button, treatmentId) {
+    // 選択された日時をリセット
+    selectedFullDate = '';
 
-            // ボタンの選択状態を切り替える
-            button.classList.toggle('active');
+    // 一旦 repair / rara をリセット（常に最初に消す）
+    const repairLabel = document.getElementById('repairLabel');
+    const repairButtons = document.getElementById('repairButtons');
+    const raraLabel = document.getElementById('raraLabel');
+    const raraButtons = document.getElementById('raraButtons');
 
+    repairLabel.style.display = 'none';
+    repairButtons.style.display = 'none';
+    raraLabel.style.display = 'none';
+    raraButtons.style.display = 'none';
 
-    // 選択されたオプションを取得
+    // ボタンの選択状態を切り替える
+    button.classList.toggle('active');
+
+    // 選択されているボタン群を取得
     const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
     const treatmentText = document.getElementById('treatment-text');
     selectedSymptom = button.textContent;
 
-    const repairLabel = document.getElementById('repairLabel');
-    const repairButtons = document.getElementById('repairButtons');
+    // ✅ ボタンが非アクティブ（選択解除）された場合は即リターンして非表示維持
+    if (!button.classList.contains('active')) {
+        treatmentText.style.display = 'none';
+        return;
+    }
 
-    if (selectedSymptom === 'ララピール60分3回コース27000円→22000円' || selectedSymptom === 'ララピール90分コース3回コース33000円→28000円') {
+    // ここから表示条件
+    if (
+        selectedSymptom === 'ララピール60分3回コース27000円→22000円' ||
+        selectedSymptom === 'ララピール90分コース3回コース33000円→28000円'
+    ) {
         button.insertAdjacentElement("afterend", repairLabel);
         repairLabel.insertAdjacentElement("afterend", repairButtons);
         repairLabel.style.display = 'block';
         repairButtons.style.display = 'flex';
-    } else {
-        repairLabel.style.display = 'none';
-        repairButtons.style.display = 'none';
-    }
-
-    if (selectedSymptom === 'ララピール60分5回コース＋1回54000円→40000円' || selectedSymptom === 'ララピール90分コース5回コース＋1回64000円→50000円') {
+    } else if (
+        selectedSymptom === 'ララピール60分5回コース＋1回54000円→40000円' ||
+        selectedSymptom === 'ララピール90分コース5回コース＋1回64000円→50000円'
+    ) {
         button.insertAdjacentElement("afterend", raraLabel);
         raraLabel.insertAdjacentElement("afterend", raraButtons);
         raraLabel.style.display = 'block';
         raraButtons.style.display = 'flex';
-    } else {
-        raraLabel.style.display = 'none';
-        raraButtons.style.display = 'none';
     }
 
+    // 以下は既存処理（時間・価格・テキスト等の更新）
     if (updatedSelectedButtons.length === 0) {
-        // すべてのボタンの選択が解除された場合、メニュー時間を0にリセット
         selectedMenuTime = 0;
-        selectedSymptom = null; // 選択されたメニューをリセット
-        menuPrice = 0; // メニュー価格をリセット
+        selectedSymptom = null;
+        menuPrice = 0;
         treatmentText.style.display = 'none';
-        return; // ここで処理を終了
-    } else {
-        // 1つだけ選択状態にする
-        if (updatedSelectedButtons.length > 1) {
-            updatedSelectedButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active'); // クリックしたボタンだけを選択
-        }
-
-        // 選択されたメニューの時間を取得して保存
-        const selectedMenu = button.textContent;
-        selectedMenuTime = menuTimes[selectedMenu] || 0; // メニュー時間を取得して保存
-        selectedSymptom = [selectedMenu]; // 選択されたメニュー名を配列として保存
-        menuPrice = parseInt(button.getAttribute('data-price'), 10) || 0;  // メニューの価格を取得
+        return;
     }
 
-    console.log('選択されたメニューの時間:', selectedMenuTime);
+    if (updatedSelectedButtons.length > 1) {
+        updatedSelectedButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    }
 
-    // カレンダーを更新するために取得する日付を渡す
+    const selectedMenu = button.textContent;
+    selectedMenuTime = menuTimes[selectedMenu] || 0;
+    selectedSymptom = [selectedMenu];
+    menuPrice = parseInt(button.getAttribute('data-price'), 10) || 0;
+
     fetchAvailability(currentDate);
+
+    // treatment-text表示など以下既存処理はそのまま
+    if (treatmentId === 'treatment1') {
+        treatmentText.innerHTML = `<div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
+    } else {
+        treatmentText.innerHTML = '';
+    }
+
+    button.parentNode.insertBefore(treatmentText, button.nextSibling);
+    treatmentText.style.display = 'block';
+    updateDisplayInfo();
 
             if (treatmentId === 'treatment1') {
                 treatmentText.innerHTML = `<div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
