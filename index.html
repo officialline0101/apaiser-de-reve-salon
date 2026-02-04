@@ -533,7 +533,15 @@
             cursor: pointer;
             box-sizing: border-box;
             text-align: center;
-            white-space: nowrap;
+            white-space: normal;
+        }
+
+        .menu-icon {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
         }
 
         .symptoms button.active,
@@ -868,17 +876,20 @@
                 <span class="highlight-text">◆アートメイク◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-price="15000">パウダー眉（2D）22000円</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment0')"
-                    data-price="15000">毛並み眉（3D）22000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
-                    data-price="15000">パウダー×毛並み眉（4D）33000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
-                    data-price="15000">（2D・3D）2カ月以内の<br>リタッチ込みのご予約の方　38000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
-                    data-price="15000">（4D）2カ月以内の<br>リタッチ込みのご予約の方　55000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">リタッチ</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')" data-price="15000">眉カラー　1100円</button>
+                    data-price="150000000000">パウダー眉（2D）22000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')"
+                    data-price="150000000000">毛並み眉（3D）22000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment2')"
+                    data-price="150000000000">パウダー×毛並み眉（4D）33000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment3')"
+                    data-price="150000000000">（2D・3D）2カ月以内の<br>リタッチ込みのご予約の方　38000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')"
+                    data-price="150000000000">（4D）2カ月以内の<br>リタッチ込みのご予約の方　55000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')"
+                    data-price="150000000000">リタッチ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment6')"
+                    data-price="150000000000">眉カラー　1100円</button>
             </div>
         </div>
 
@@ -887,21 +898,22 @@
                 <span class="highlight-text">◆ララピール◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
+                <button type="button" onclick="selectSymptom(this, 'treatment7')"
                     data-price="15000">ララピール90分【初回の方限定】<br>11000円→6000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
+                <button type="button" onclick="selectSymptom(this, 'treatment8')"
                     data-price="15000">ララピール60分コース<br>9000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment1')"
+                <button type="button" onclick="selectSymptom(this, 'treatment9')"
                     data-price="15000">ララピール60分3回コース<br>27000円→22000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment1')"
+                <button type="button" onclick="selectSymptom(this, 'treatment10')"
                     data-price="15000">ララピール60分5回コース<br>54000円→45000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
+                <button type="button" onclick="selectSymptom(this, 'treatment11')"
                     data-price="15000">ララピール90分コース<br>11000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment1')"
+                <button type="button" onclick="selectSymptom(this, 'treatment12')"
                     data-price="15000">ララピール90分コース3回コース<br>33000円→28000円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment1')"
+                <button type="button" onclick="selectSymptom(this, 'treatment13')"
                     data-price="15000">ララピール90分コース5回コース<br>64000円→55000円</button>
-                <button type="button" onclick="selectSymptom(this)" data-price="15000">ララピール60分×毛穴洗浄<br>(ハイドラ) 16000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment14')"
+                    data-price="0">ララピール60分×毛穴洗浄<br>(ハイドラ) 16000円</button>
             </div>
 
             <label id="repairLabel" style="display:none;"></label>
@@ -926,9 +938,12 @@
                 <span class="highlight-text">◆毛穴洗浄(ハイドラ)◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-price="15000">毛穴洗浄(ハイドラ)60分 8000円</button>
-                <button type="button" onclick="selectSymptom(this)" data-price="15000">ララピール60分×毛穴洗浄<br>(ハイドラ) 16000円</button>
-                <button type="button" onclick="selectSymptom(this)" data-price="15000">WAX脱毛×毛穴洗浄<br>（ハイドラ）14500円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment15')"
+                    data-price="150000000000">毛穴洗浄(ハイドラ)60分 8000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment16')"
+                    data-price="150000000000">ララピール60分×毛穴洗浄<br>(ハイドラ) 16000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment17')"
+                    data-price="150000000000">WAX脱毛×毛穴洗浄<br>（ハイドラ）14500円</button>
             </div>
         </div>
 
@@ -937,13 +952,14 @@
                 <span class="highlight-text">◆WAX脱毛◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)" data-price="15000">WAX脱毛【前顔】6500円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
-                    data-price="15000">WAX脱毛【1パーツ】2500円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
-                    data-price="15000">WAX脱毛【うなじ】3500円</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment0')"
-                    data-price="15000">WAX脱毛×毛穴洗浄<br>（ハイドラ）14500円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment18')"
+                    data-price="150000000000">WAX脱毛【前顔】6500円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment19')"
+                    data-price="150000000000">WAX脱毛【1パーツ】2500円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment20')"
+                    data-price="150000000000">WAX脱毛【うなじ】3500円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment21')"
+                    data-price="150000000000">WAX脱毛×毛穴洗浄<br>（ハイドラ）14500円</button>
             </div>
         </div>
 
@@ -1043,19 +1059,17 @@
         let menuTimes = {
             '毛穴洗浄(ハイドラ)60分 8000円': 90,
             'ララピール60分×毛穴洗浄(ハイドラ) 16000円': 90,
-            'WAX脱毛×毛穴洗浄（ハイドラ） 14500円': 120,
+            'WAX脱毛×毛穴洗浄（ハイドラ）14500円': 120, // Updated to match button text (no space after brackets)
             'WAX脱毛【前顔】6500円': 90,
             'WAX脱毛【1パーツ】2500円': 30,
             'WAX脱毛【うなじ】3500円': 60,
-            'WAX脱毛×毛穴洗浄（ハイドラ）14500円': 120,
             'パウダー眉（2D）22000円': 240,
             'リタッチ': 180,
             '毛並み眉（3D）22000円': 240,
-            'パウダー×毛並み眉　33000円': 240,
+            'パウダー×毛並み眉（4D）33000円': 240, // Corrected from パウダー×毛並み眉　33000円
             '（2D・3D）2カ月以内のリタッチ込みのご予約の方　38000円': 210,
             '（4D）2カ月以内のリタッチ込みのご予約の方　55000円': 210,
             '眉カラー　1100円': 30,
-            'ララピール＋導入美顔器': 120,
             'ララピール90分【初回の方限定】11000円→6000円': 90,
             'ララピール60分コース9000円': 60,
             'ララピール60分3回コース27000円→22000円': 60,
@@ -1269,34 +1283,53 @@
             fetchAvailability(currentDate);
 
             // treatment-text表示など以下既存処理はそのまま
-            if (treatmentId === 'treatment1') {
-                treatmentText.innerHTML = `<div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
-            } else {
-                treatmentText.innerHTML = '';
-            }
 
-            button.parentNode.insertBefore(treatmentText, button.nextSibling);
-            treatmentText.style.display = 'block';
-            updateDisplayInfo();
 
-            if (treatmentId === 'treatment1') {
-                treatmentText.innerHTML = `<div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
+
+            if (treatmentId === 'treatment0') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/3ji93th6hvvnvm87o9rbv/4.png?rlkey=k7pzfttbzsmv82gk4rgix2780&st=blb49cuv&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment1') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/jcndjagrvemmpi4s9wqx8/5.png?rlkey=4hal7zsguyw6ir0l7z270m38n&st=v5kljppy&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment2') {
-                treatmentText.innerHTML = `<div style="text-align: left;">※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/tpz082zst2wvaft71vlqw/6.png?rlkey=fmo1d2c3zr46cxtas5ucv7oqp&st=g0pyja1z&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment3') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/z29s7xpwcnjj08slh8ye6/2d_3d.png?rlkey=7qepz7oti57reu2s35m5ex3qa&st=3ic4p5hc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment4') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/uhwfyxk6nqe60ex4uxla8/9.png?rlkey=2do3s708vgflw5jub2qvb2u3b&st=178ulsdf&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment5') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円</strong></div>`;
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/6vzye3ksj36g3sj0igirn/line_oa_chat_260128_114603.jpg?rlkey=mpmvq8otxb82si07c0n9c7rf4&st=wvg0hzhh&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment6') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円</strong></div>`;
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/qpcsxl671zq7zvaqsnsk2/line_oa_chat_260128_1146001.png?rlkey=4ncydugs1pdno97fzykotvfel&st=ppk6j743&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment7') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円</strong></div>`;
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment8') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment9') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;"><div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
+            } else if (treatmentId === 'treatment10') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;"><div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
+            } else if (treatmentId === 'treatment11') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment12') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;"><div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
+            } else if (treatmentId === 'treatment13') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;"><div style="text-align: left;">同コース利用回数を以下の中から選択してください。</div>`;
+            } else if (treatmentId === 'treatment14') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment15') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/l226w6fcczba5th8zbwem/.png?rlkey=uw5tou9k9o7u8uwrmcq2wd5hi&st=abvdzieq&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment16') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/0p6vj6th0stwzjxb0lmg6/.png?rlkey=xvxey164x2clynpsvswu1ijzb&st=yrqftmfc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment17') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/ect0kmb6fcfnxfa8pb0x3/WAX.png?rlkey=d4r9sjsicjsj7wwb3kx6s2xhm&st=rbym7adh&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment18') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/ect0kmb6fcfnxfa8pb0x3/WAX.png?rlkey=d4r9sjsicjsj7wwb3kx6s2xhm&st=rbym7adh&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment19') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/ect0kmb6fcfnxfa8pb0x3/WAX.png?rlkey=d4r9sjsicjsj7wwb3kx6s2xhm&st=rbym7adh&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment20') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/ect0kmb6fcfnxfa8pb0x3/WAX.png?rlkey=d4r9sjsicjsj7wwb3kx6s2xhm&st=rbym7adh&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment21') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/ect0kmb6fcfnxfa8pb0x3/WAX.png?rlkey=d4r9sjsicjsj7wwb3kx6s2xhm&st=rbym7adh&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else {
                 treatmentText.innerHTML = '';
             }
