@@ -867,6 +867,8 @@
             <button type="button" onclick="showMenu('female')">ララピール</button>
             <button type="button" onclick="showMenu('keana')">毛穴洗浄(ハイドラ)</button>
             <button type="button" onclick="showMenu('wax')">WAX脱毛</button>
+            <button type="button" onclick="showMenu('shimi')">シミ取り【肝斑対応】</button>
+            <button type="button" onclick="showMenu('hikari')">光脱毛</button>
         </div>
 
         <div id="treatment-text" style="display: none; margin-bottom: 10px;"></div>
@@ -960,6 +962,32 @@
                     data-price="150000000000">WAX脱毛【うなじ】3500円</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment21')"
                     data-price="150000000000">WAX脱毛×毛穴洗浄<br>（ハイドラ）14500円</button>
+            </div>
+        </div>
+
+        <div id="shimi" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆シミ取り【肝斑対応】◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment22')"
+                    data-price="11000">ピンポイント集中ケアコース<br>11000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment23')"
+                    data-price="22000">欲張りオーダーメイドコース<br>22000円</button>
+            </div>
+        </div>
+
+        <div id="hikari" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆光脱毛◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment24')"
+                    data-price="5000">ひげ脱毛<br>5000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment25')"
+                    data-price="18000">全身脱毛(顔なし・VIOなし)<br>18000円</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment26')"
+                    data-price="22000">全身脱毛(顔あり・VIOなし)<br>22000円</button>
             </div>
         </div>
 
@@ -1076,7 +1104,12 @@
             'ララピール60分5回コース45000円→38000円': 60,
             'ララピール90分コース11000円': 90,
             'ララピール90分コース3回コース33000円→28000円': 90,
-            'ララピール90分コース5回コース55000円→48000円': 90
+            'ララピール90分コース5回コース55000円→48000円': 90,
+            'ピンポイント集中ケアコース11000円': 90,
+            '欲張りオーダーメイドコース22000円': 120,
+            'ひげ脱毛5000円': 60,
+            '全身脱毛(顔なし・VIOなし)18000円': 120,
+            '全身脱毛(顔あり・VIOなし)22000円': 150
         };
 
         let selectedMenuTime = 0;
@@ -1330,6 +1363,16 @@
                 treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/ect0kmb6fcfnxfa8pb0x3/WAX.png?rlkey=d4r9sjsicjsj7wwb3kx6s2xhm&st=rbym7adh&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
             } else if (treatmentId === 'treatment21') {
                 treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/ect0kmb6fcfnxfa8pb0x3/WAX.png?rlkey=d4r9sjsicjsj7wwb3kx6s2xhm&st=rbym7adh&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment22') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/41i6mdah8ijs2vr34yr53/.jpg?rlkey=zxurdak9fy1oqvly6erjo38l1&st=mt9m6nvc&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;"><div style="text-align: left;">1番のお悩みに特化したケアになります。<br>シミ・リフトアップ効果・ニキビケア等に効果的です✨</div>`;
+            } else if (treatmentId === 'treatment23') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/drr89w0qorjo2o00kp60i/.jpg?rlkey=95dwyicwmdc8zintdq39dbno3&st=hby1nqi4&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;"><div style="text-align: left;">複数のお悩みを一度に解決できるケアになります。<br>シミ・シワ・毛穴・たるみ・ニキビ・ムダ毛処理、全てのケアが可能です✨</div>`;
+            } else if (treatmentId === 'treatment24') {
+                treatmentText.innerHTML = `<img src="https://www.dropbox.com/scl/fi/cdjyj85o5dzbfm83zr56m/.jpg?rlkey=kd1tu3dto7jno34cl7ts4cult&st=2hmwtauz&raw=1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">`;
+            } else if (treatmentId === 'treatment25') {
+                treatmentText.innerHTML = '';
+            } else if (treatmentId === 'treatment26') {
+                treatmentText.innerHTML = '';
             } else {
                 treatmentText.innerHTML = '';
             }
