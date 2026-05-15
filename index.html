@@ -856,7 +856,7 @@
                 <span id="cancelPolicyArrow" style="font-size:18px; color:#c0392b; transition:transform 0.3s;">▼</span>
             </div>
             <!-- 本文（アコーディオン部分） -->
-            <div id="cancelPolicyBody" style="padding:0 18px; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s ease; max-height:600px;">
+            <div id="cancelPolicyBody" style="padding:0 18px; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s ease; max-height:2000px;">
                 <div style="font-size:13.5px; line-height:1.9; color:#333; padding-bottom:10px;">
                     <p style="margin:0 0 10px;"><strong>・無断キャンセル</strong><br>
                     ご連絡なく、ご予約時間から10分以上ご来店が確認できない場合は、施術料金の全額を頂戴いたします。</p>
@@ -1118,7 +1118,7 @@
                 arrow.style.transform = 'rotate(-90deg)';
             } else {
                 // 開く
-                body.style.maxHeight = '600px';
+                body.style.maxHeight = '2000px';
                 body.style.padding = '0 18px';
                 arrow.style.transform = 'rotate(0deg)';
                 if (hint) hint.style.display = 'none'; // 一度開いたらヒント非表示
