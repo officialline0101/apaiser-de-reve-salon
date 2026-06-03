@@ -848,38 +848,6 @@
             </label>
         </div>
 
-        <!-- キャンセルポリシー同意（アコーディオン） -->
-        <div id="cancelPolicyArea" style="background:#fff8f8; border:2px solid #e07070; border-radius:10px; margin-bottom:18px; overflow:hidden;">
-            <!-- ヘッダー（常に表示・タップで開閉） -->
-            <div id="cancelPolicyHeader" onclick="toggleCancelPolicy()" style="display:flex; justify-content:space-between; align-items:center; padding:14px 18px; cursor:pointer; user-select:none;">
-                <span style="font-weight:bold; font-size:17px; color:#c0392b;">キャンセルポリシー</span>
-                <span id="cancelPolicyArrow" style="font-size:18px; color:#c0392b; transition:transform 0.3s;">▼</span>
-            </div>
-            <!-- 本文（アコーディオン部分） -->
-            <div id="cancelPolicyBody" style="padding:0 18px; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s ease; max-height:2000px;">
-                <div style="font-size:13.5px; line-height:1.9; color:#333; padding-bottom:10px;">
-                    <p style="margin:0 0 10px;"><strong>・無断キャンセル</strong><br>
-                    ご連絡なく、ご予約時間から10分以上ご来店が確認できない場合は、施術料金の全額を頂戴いたします。</p>
-                    <p style="margin:0 0 10px;"><strong>・当日キャンセル</strong><br>
-                    ご予約当日のキャンセルは、施術料金の半額を頂戴いたします。<br>
-                    なお、ご予約時間の1時間前以降のキャンセルは全額となります。</p>
-                    <p style="margin:0 0 10px;"><strong>・当日の時間変更</strong><br>
-                    当日の時間変更は、1回につき1,000円を頂戴いたします。<br>
-                    ※お時間を早める場合は無料で承っております。</p>
-                    <p style="margin:0 0 10px;"><strong>・10分以上の遅刻</strong><br>
-                    ご予約時間より10分以上遅刻された場合、10分ごとに1,000円を頂戴いたします。<br>
-                    また、状況により施術時間の短縮や内容の変更をお願いする場合がございます。</p>
-                    <p style="margin:0 0 14px; color:#555;">急なご予定や体調不良などでご来店が難しくなった場合は、できるだけ前日までにご連絡いただけますと大変助かります。</p>
-                </div>
-                <div style="text-align:center; padding-bottom:16px;">
-                    <label style="display:inline-flex; align-items:center; gap:10px; cursor:pointer; font-weight:bold; font-size:15px; color:#c0392b;">
-                        <input type="checkbox" id="cancelPolicyAgree" onchange="saveCancelPolicyAgreement()" style="width:22px; height:22px; accent-color:#c0392b; cursor:pointer;">
-                        同意する
-                    </label>
-                </div>
-            </div>
-        </div>
-
         <div class="label">お客様名<span class="required">必須</span></div>
         <input type="text" id="name" placeholder="お名前を入力してください" oninput="saveInput('name')">
 
@@ -1088,59 +1056,7 @@
             });
 
             fetchAvailability(currentDate);
-
-            // キャンセルポリシー同意チェックをLocalStorageから復元（2回目以降は自動チェック＋折りたたむ）
-            if (localStorage.getItem('cancelPolicyAgreed') === 'true') {
-                document.getElementById('cancelPolicyAgree').checked = true;
-                // 2回目以降：アニメーションなしで即座に折りたたむ
-                const body = document.getElementById('cancelPolicyBody');
-                const arrow = document.getElementById('cancelPolicyArrow');
-                // transitionを一時停止してアニメーションが走らないようにする
-                body.style.transition = 'none';
-                arrow.style.transition = 'none';
-                body.style.maxHeight = '0';
-                body.style.padding = '0 18px';
-                arrow.style.transform = 'rotate(-90deg)';
-                // 次フレームでtransitionを再有効化（タップ時のアニメーションは維持）
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        body.style.transition = 'max-height 0.4s ease, padding 0.3s ease';
-                        arrow.style.transition = 'transform 0.3s';
-                    });
-                });
-                // ヘッダーにサブテキストを追加
-                document.getElementById('cancelPolicyHeader').insertAdjacentHTML(
-                    'beforeend',
-                    '<span id="cancelPolicyHint" style="font-size:11px; color:#e07070; margin-left:8px;">（タップして確認）</span>'
-                );
-            }
         });
-
-        // キャンセルポリシー 開閉トグル
-        function toggleCancelPolicy() {
-            const body = document.getElementById('cancelPolicyBody');
-            const arrow = document.getElementById('cancelPolicyArrow');
-            const hint = document.getElementById('cancelPolicyHint');
-            const isOpen = body.style.maxHeight !== '0px' && body.style.maxHeight !== '0';
-            if (isOpen) {
-                // 閉じる
-                body.style.maxHeight = '0';
-                body.style.padding = '0 18px';
-                arrow.style.transform = 'rotate(-90deg)';
-            } else {
-                // 開く
-                body.style.maxHeight = '2000px';
-                body.style.padding = '0 18px';
-                arrow.style.transform = 'rotate(0deg)';
-                if (hint) hint.style.display = 'none'; // 一度開いたらヒント非表示
-            }
-        }
-
-        // キャンセルポリシー同意状態をLocalStorageに保存
-        function saveCancelPolicyAgreement() {
-            const agreed = document.getElementById('cancelPolicyAgree').checked;
-            localStorage.setItem('cancelPolicyAgreed', agreed ? 'true' : 'false');
-        }
 
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let visitTimes = {
@@ -1598,12 +1514,6 @@
                 dates: selectedFullDate ? [selectedFullDate] : null, // 空チェック
                 message: document.getElementById('message').value.trim()
             };
-
-            // キャンセルポリシー同意チェック
-            if (!document.getElementById('cancelPolicyAgree').checked) {
-                alert('キャンセルポリシーに同意してください。');
-                return;
-            }
 
             // フォームデータのチェック
             if (!formData.name) {
